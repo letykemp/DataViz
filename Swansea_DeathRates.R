@@ -10,16 +10,16 @@ if (length(new.packages)) install.packages(new.packages)
 lapply(pkgs, library, character.only = T)
 
 # Load Spatial Data
+#Import accident and cencus data firstly compiled by Richard Fry at http://richfry.github.io/Exposure.html
 
-# define projection
 bng = "+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +datum=OSGB36 +units=m +no_defs"
 
 # load spatial data - may take some time depending on your laptop
-welsh.lsoa <- readOGR(dsn = "./Raw Data/Spatial Data/LSOA 2011/unzipped/wales_lsoa_2011_gen.shp", 
+welsh.lsoa <- readOGR(dsn = "wales_lsoa_2011_gen.shp", 
                       layer = "wales_lsoa_2011_gen", p4s = bng)
 
 # load road summary
-welsh.roads <- read.csv(file = "./Raw Data/Spatial Data/OS Open Roads/road_summary.csv")
+welsh.roads <- read.csv(file = "road_summary.csv")
 # cast rows to columns so we have a col for each road type
 welsh.roads <- dcast(welsh.roads, LSOA11CD ~ class)
 # create total column
@@ -27,7 +27,7 @@ welsh.roads <- welsh.roads %>% mutate(Total_km = rowSums(.[, 2:6], na.rm = T))
 # replace NAs with 0
 welsh.roads[is.na(welsh.roads)] <- 0
 
-#Import accident and cencus data firstly compiled by Richard Fry at http://richfry.github.io/Exposure.html
+
 
 Stats19.final <- readRDS("Stats19final.rds")
 plot.data <- readRDS("Plotdata.rds") 
@@ -44,7 +44,7 @@ qplot(data = Stats19.final, x = Stats19.final$Location_Easting_OSGR, y = Stats19
 injury.rates <- left_join(injury.rates, welsh.roads)
 
 # load swansea area
-swansea.lsoa <- readOGR(dsn = "./Raw Data/Spatial Data/LSOA 2011/unzipped/swansea.lsoa.2011.shp", 
+swansea.lsoa <- readOGR(dsn = "swansea.lsoa.2011.shp", 
                         layer = "swansea.lsoa.2011", p4s = bng)
 
 swansea.lsoa@data <- plyr::rename(swansea.lsoa@data, c(LSOA11CD = "code"))
