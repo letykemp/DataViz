@@ -12,7 +12,7 @@ output:
 
 This page shows the methodology of an exploratory data analysis where I created risk rates of accident severity type 1 in the region of Swansea, UK. 
 
-Adjusted risk rates were calculated and illustrated in a quantile map. The end product was a academic conference poster presented as part of the Data Visualisation module. More details on [poster](Poster_A3_DataViz.pdf). (This site was not part of the assignemnt, however, I loved working with RStudio and just wanted more!! ♥♥♥)
+Adjusted risk rates were calculated and illustrated in a quantile map. The end product was a academic conference poster presented as part of the Data Visualisation module. More details on [poster](Poster_A3_DataViz.pdf). (This site was not part of the assignment, however, I loved working with RStudio and just wanted more!! ♥♥♥)
 
 The data sources were Open Data from UK authorities, but directly retrieved from [this](http://richfry.github.io/Exposure.html#introduction) tutorial by GIS specialist [Richard Fry](https://twitter.com/richfry). Richard was responsible for the GIS component of the Data Visualisation module.
 

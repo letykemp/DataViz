@@ -155,7 +155,7 @@ knitr::include_graphics('gutemberg-diagram.png')
 <br>
 <br>
 
-Following Gutemberg Diagram’s pattern, the previously ranked components of the [Storyline](#storyline) section are placed in the poster. Main message (risk map) was placed to the right of the title, towards the center of the page following Gutemberg’s reading gravity direction. Main conclusion (conclusion), numbered as 2nd on [Storyline](#storyline) also followed the pattern. Ranked number 3 on [Storyline](#storyline) was secondary messages, which was also placed on a smaller but “prime real-estate” according to Gutemberg Diagram.
+Following Gutemberg Diagram’s pattern, the previously ranked components of the [Storyline](#storyline) section are placed in the poster. Main message (risk map) was placed to the right of the title, towards the center of the page following Gutemberg’s reading gravity direction. Main conclusion (conclusion), placed as 2^nd^ on [Storyline](#storyline) also followed the pattern. Ranked 3^rd^ on [Storyline](#storyline) was secondary messages, which was also placed on a smaller but “prime real-estate” according to Gutemberg Diagram.
 
 <br>
 <br>

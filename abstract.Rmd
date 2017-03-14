@@ -11,9 +11,11 @@ output:
 
 ## Poster Abstract
 
-Title: What is the risk of dying in a road accident in Swansea?
+**Title**:
+What is the risk of dying in a road accident in Swansea?
 
-Author: Leticia Kemp, Health Data Science, School of Medicine, Swansea University
+**Author**:
+Leticia Kemp, Health Data Science, School of Medicine, Swansea University
 
 
 A literature review suggests that the recorded road casualties have been decreasing over the last decade in Wales, however world-wide road traffic injuries are still predicted to rise to become the 7^th^ leading cause of death by 2030. 
@@ -34,6 +36,15 @@ $$Adjusted\hspace{1mm}Rate=\hspace{1mm}\frac{Total\hspace{1mm}number\hspace{1mm}
 
 <br>
 
+
 The risk rates result show that low risk combined with very low risk rate covered 87.16% of the LSOAs, representing a great part of Swansea as having low risk of road death. While the medium risk rate covered 9.46% of areas, the high and very high risk rate combined totalled at only 3.38% of LSOAs in Swansea. Nonetheless, there are still specific LSOAs in the precincts of Landore, Castle and Morriston that present a higher risk of road casualties resulting in death. 
 
 Other significant statistical insights of the accident severity type 1 was that 26% of the deaths were of people ages 18 and under; and that 2 out of 3 people involved were males.
+
+
+```{r, echo=FALSE, out.width = "600px", fig.align="center"}
+knitr::include_graphics('infographics2.png')
+```
+
+*$\small{The\hspace{1mm} combined\hspace{1mm} dataset\hspace{1mm} provided\hspace{1mm} did\hspace{1mm} not\hspace{1mm} contain\hspace{1mm} data\hspace{1mm} for\hspace{1mm} the\hspace{1mm} year\hspace{1mm} 2007.}$
+
