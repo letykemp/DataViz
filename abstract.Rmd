@@ -1,22 +1,18 @@
 ---
 title: "Abstract"
-author: "Lety Kemp"
+author: " "
 date: ''
 output:
   html_document:
     theme: cosmo
 ---
 
-
-
-## Poster Abstract
-
-**Title**:
-What is the risk of dying in a road accident in Swansea?
-
 **Author**:
 Leticia Kemp, Health Data Science, School of Medicine, Swansea University
 
+## Poster Abstract
+
+###What is the risk of dying in a road accident in Swansea?
 
 A literature review suggests that the recorded road casualties have been decreasing over the last decade in Wales, however world-wide road traffic injuries are still predicted to rise to become the 7^th^ leading cause of death by 2030. 
 
