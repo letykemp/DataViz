@@ -6,7 +6,7 @@ navbar:
       href: index.html
     - text: "abstract"
       href: abstract.html
-    - text: "Design rationale"
+    - text: "poster design"
       href: rationale.html
 output_dir: "."
 output:
