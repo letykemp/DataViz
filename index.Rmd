@@ -1,6 +1,6 @@
 ---
 title: "Data Visualization"
-author: "[Lety Kemp](https://twitter.com/letykemp) | Masters of Health Data Science"
+author: "[Lety Kemp](https://twitter.com/letykemp) | MSc on Health Data Science"
 date: " "
 output:
   html_document:
