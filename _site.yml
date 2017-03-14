@@ -1,0 +1,14 @@
+name: "Data Visualisation"
+navbar:
+  title: "Data Visualisation"
+  left:
+    - text: "R as GIS"
+      href: index.html
+    - text: "abstract"
+      href: abstract.html
+    - text: "Design rationale"
+      href: rationale.html
+output_dir: "."
+output:
+  html_document:
+    theme: cosmo

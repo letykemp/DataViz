@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Lety Kemp" />
+
+
+<title>Abstract</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Data Visualisation</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">R as GIS</a>
+</li>
+<li>
+  <a href="abstract.html">abstract</a>
+</li>
+<li>
+  <a href="rationale.html">Design rationale</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Abstract</h1>
+<h4 class="author"><em>Lety Kemp</em></h4>
+
+</div>
+
+
+<div id="poster-abstract" class="section level2">
+<h2>Poster Abstract</h2>
+<p>Title: What is the risk of dying in a road accident in Swansea?</p>
+<p>Author: Leticia Kemp, Health Data Science, School of Medicine, Swansea University</p>
+<p>A literature review suggests that the recorded road casualties have been decreasing over the last decade in Wales, however world-wide road traffic injuries are still predicted to rise to become the 7<sup>th</sup> leading cause of death by 2030.</p>
+<p>Swansea is situated in the middle of the South Wales coastal area and has the second largest local authority population in Wales (242,400). The importance of identifying specific patterns in particular precinct areas remains imperative when death occurs from a road casualty. An exploratory data analysis (EDA) was carried out to find the potential risks of such casualties for the wider population in the area. These findings are important in assisting government, road safety and law enforcement agencies in identifying high risk localities by focusing on local policy making of prevention measures.</p>
+<p>A risk model summarising risk factors of accident of severity type 1 (fatal) occurred in Swansea was produced from data sourced between 2005 and 20148*. The data consisted of road accident and casualty statistics recorded by police authorities; a part of the Open Data initiative in the UK.</p>
+<p>The model was produced by linking the accident data, census data and administrative boundaries map data of 148 Lower Super Output Areas (LSOAs) of Swansea. The rates were calculated as follows: <br> <br></p>
+<p><span class="math display">\[Basic\hspace{1mm}Rate=\frac{Total\hspace{1mm}number\hspace{1mm}of\hspace{1mm}accidents}{Total\hspace{1mm}road\hspace{1mm}Km}\]</span> <br> <br> <span class="math display">\[Adjusted\hspace{1mm}Rate=\hspace{1mm}\frac{Total\hspace{1mm}number\hspace{1mm}severity\hspace{1mm}type\hspace{1mm}1\hspace{1mm}accidents}{Total\hspace{1mm}accidents*Basic\hspace{1mm}Rate}\]</span></p>
+<p><br></p>
+<p>The risk rates result show that low risk combined with very low risk rate covered 87.16% of the LSOAs, representing a great part of Swansea as having low risk of road death. While the medium risk rate covered 9.46% of areas, the high and very high risk rate combined totalled at only 3.38% of LSOAs in Swansea. Nonetheless, there are still specific LSOAs in the precincts of Landore, Castle and Morriston that present a higher risk of road casualties resulting in death.</p>
+<p>Other significant statistical insights of the accident severity type 1 was that 26% of the deaths were of people ages 18 and under; and that 2 out of 3 people involved were males.</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

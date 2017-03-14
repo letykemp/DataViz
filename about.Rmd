@@ -1,0 +1,17 @@
+---
+title: "about"
+author: "Lety Kemp"
+date: "13 March 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Data Visualization, a subject of the MSc 
+
+This GIS excercise was produced to present the results of an exploratory data analysis completed as part of the 
+
+Some of the initial code was produced by [Richard Fry](http://richfry.github.io/Exposure.html#introduction), the GIS lecturer of the course. Thanks Rich!
+

@@ -9,15 +9,14 @@
 <meta name="generator" content="pandoc" />
 
 
-<meta name="author" content="Lety Kemp" />
+<meta name="author" content="Lety Kemp | Masters of Health Data Science" />
 
-<meta name="date" content="2017-03-13" />
 
-<title>index</title>
+<title>Data Visualization</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -173,12 +172,18 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">My Website</a>
+      <a class="navbar-brand" href="index.html">Data Visualisation</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Home</a>
+  <a href="index.html">R as GIS</a>
+</li>
+<li>
+  <a href="abstract.html">abstract</a>
+</li>
+<li>
+  <a href="rationale.html">Design rationale</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -192,32 +197,119 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">index</h1>
-<h4 class="author"><em>Lety Kemp</em></h4>
-<h4 class="date"><em>13 March 2017</em></h4>
+<h1 class="title toc-ignore">Data Visualization</h1>
+<h4 class="author"><em><a href="https://twitter.com/letykemp">Lety Kemp</a> | <a href="http://www.swansea.ac.uk/medicine/learningandteaching/msc-health-data-science/">Masters of Health Data Science</a></em></h4>
 
 </div>
 
 
-<div id="r-markdown" class="section level2">
-<h2>R Markdown</h2>
-<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
-<pre class="r"><code>summary(cars)</code></pre>
-<pre><code>##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00</code></pre>
-</div>
-<div id="including-plots" class="section level2">
-<h2>Including Plots</h2>
-<p>You can also embed plots, for example:</p>
-<p><img src="index_files/figure-html/pressure-1.png" width="672" /></p>
-<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
-<p>rmarkdown::render_site</p>
+<div id="risk-rate-map---gis" class="section level2">
+<h2>Risk rate map - GIS</h2>
+<p>This page shows the methodology of an exploratory data analysis where I created risk rates of accident severity type 1 in the region of Swansea, UK.</p>
+<p>Adjusted risk rates were calculated and illustrated in a quantile map. The end product was a academic conference poster presented as part of the Data Visualisation module. More details on <a href="Poster_A3_DataViz.pdf">poster</a>.</p>
+<p>The data sources were Open Data from UK authorities, but directly retrieved from <a href="http://richfry.github.io/Exposure.html#introduction">this</a> tutorial by GIS specialist <a href="https://twitter.com/richfry">Richard Fry</a>. Richard was responsible for the GIS component of the Data Visualisation module.</p>
+<p>The analysis and map were created using R software. This site was also created using RStudio, Rmarkdown and GitHub. The <a href="Poster_A3_DataViz.pdf">poster</a> was created in Adobe Illustrator.</p>
+<p>Following is the R code I used to create the rates and plot them in the map:</p>
+<pre class="r"><code>#Assign packages needed 
+pkgs = c(&#39;ggplot2&#39;, &quot;plyr&quot;, &quot;dplyr&quot;, &quot;GISTools&quot;, &quot;rgdal&quot;, &quot;rgeos&quot;, &quot;reshape2&quot;, 
+         &quot;DT&quot;)
+
+# check installed
+new.packages &lt;- pkgs[!(pkgs %in% installed.packages()[, &quot;Package&quot;])]
+if (length(new.packages)) install.packages(new.packages)
+
+# load libraries
+lapply(pkgs, library, character.only = T)
+
+# Load Spatial Data
+bng = &quot;+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +datum=OSGB36 +units=m +no_defs&quot;
+
+# load spatial data - may take some time depending on your laptop
+welsh.lsoa &lt;- readOGR(dsn = &quot;wales_lsoa_2011_gen.shp&quot;, layer = &quot;wales_lsoa_2011_gen&quot;, p4s = bng)</code></pre>
+<p>Load road summary to obtain the total road Kilometers in order to calculate the risk rates</p>
+<pre class="r"><code># load roads file
+welsh.roads &lt;- read.csv(file = &quot;road_summary.csv&quot;)
+# cast rows to columns so we have a col for each road type
+welsh.roads &lt;- dcast(welsh.roads, LSOA11CD ~ class)
+# create total column
+welsh.roads &lt;- welsh.roads %&gt;% mutate(Total_km = rowSums(.[, 2:6], na.rm = T))
+# replace NAs with 0
+welsh.roads[is.na(welsh.roads)] &lt;- 0</code></pre>
+<p>Load Stats19, and census files prepared by Richard Fry in <a href="http://richfry.github.io/Exposure.html#introduction">this tutorial</a></p>
+<pre class="r"><code>Stats19.final &lt;- readRDS(&quot;Stats19final.rds&quot;)
+plot.data &lt;- readRDS(&quot;Plotdata.rds&quot;) 
+injury.rates &lt;- readRDS(&quot;injuryrates.rds&quot;)
+
+# create a count of accidents by LSOA
+stats19.lsoa &lt;- Stats19.final %&gt;% group_by(id) %&gt;% dplyr::summarise(n_accidents = n())
+
+# plot to check the accidents are where we hope - i.e. Wales
+qplot(data = Stats19.final, x = Stats19.final$Location_Easting_OSGR, y = Stats19.final$Location_Northing_OSGR, xlab = &quot;Eastings&quot;, ylab = &quot;Northings&quot;) + coord_equal()</code></pre>
+<p><img src="index_files/figure-html/swansea-1.png" width="672" /></p>
+<pre class="r"><code># join road data to previous table
+injury.rates &lt;- left_join(injury.rates, welsh.roads)
+
+# load swansea area
+swansea.lsoa &lt;- readOGR(dsn = &quot;./swansea.lsoa.2011.shp&quot;, layer = &quot;swansea.lsoa.2011&quot;, p4s = bng)
+swansea.lsoa@data &lt;- plyr::rename(swansea.lsoa@data, c(LSOA11CD = &quot;code&quot;))
+
+# fortify
+swansea.lsoa.fortify &lt;- fortify(swansea.lsoa, region = &quot;code&quot;)</code></pre>
+<p>Join injury rates and visualise in Swansea map</p>
+<pre class="r"><code># join injury rates to new geometry
+plot.data &lt;- left_join(swansea.lsoa.fortify, injury.rates)
+
+# Map the injury rates
+ggplot() + geom_polygon(data = plot.data, aes(x = long, y = lat, group = group, 
+fill = n_accidents), colour = &quot;grey&quot;, size = 0) + coord_equal() + xlab(&quot;Eastings&quot;) + ylab(&quot;Northings&quot;)</code></pre>
+<p><img src="index_files/figure-html/injury-1.png" width="672" /></p>
+<pre class="r"><code># Filter severity fields from imported &#39;Stats19.final&#39; file
+Severity &lt;- Stats19.final
+Severity &lt;- subset(Stats19.final, select=c(&quot;Accident_Severity&quot;, &quot;id&quot;))
+
+# Cast rows to columns so we have a col for each Severity level
+Severity.casted &lt;- melt(Severity)
+
+# Count all severity types accidents, per type - columns Sev 1, 2 and 3
+Severity.casted &lt;- mutate(Severity.casted, Sev1 = ifelse(value == 1, 1, 0)) 
+Severity.casted &lt;- mutate(Severity.casted, Sev2 = ifelse(value == 2, 1, 0))
+Severity.casted &lt;- mutate(Severity.casted, Sev3 = ifelse(value == 3, 1, 0))
+
+# Group by and summarise each severity by Swansea lsoa locality(id) prior to joining
+Severity.counts &lt;- Severity.casted  %&gt;% group_by(id) %&gt;% summarise(count_Sev1 = sum(Sev1), count_Sev2 = sum(Sev2), count_Sev3 = sum(Sev3))
+
+# Join severity to injury rates (plot.data)
+Severity.rates &lt;- dplyr::left_join(plot.data, Severity.counts)
+
+# Calculate basic rates on n.accident over total road Km
+Severity.rates$road.rate &lt;- Severity.rates$n_accidents/Severity.rates$Total_km
+
+# map basic rates rates to show spatial distribution in Swansea
+ggplot() + geom_polygon(data = Severity.rates, aes(x = long, y = lat, group = group, 
+fill = road.rate), colour =&quot;grey&quot;, size = 0) + coord_equal() + xlab(&quot;Eastings&quot;) + 
+ylab(&quot;Northings&quot;)</code></pre>
+<p><img src="index_files/figure-html/injury-2.png" width="672" /></p>
+<p>Replace NA values with 0 to avoid NA showing on map</p>
+<pre class="r"><code># change incomplete to NA
+is.na(Severity.rates) &lt;- sapply(Severity.rates, is.infinite)
+# zero out NA
+Severity.rates[is.na(Severity.rates)] &lt;- 0</code></pre>
+<p>Calculate adjusted rates for severity type 1 accidents by km of road and show on final map</p>
+<pre class="r"><code>#Create refined rates for Severity 1 (fatal) using basic rate
+Severity.rates$Sev1_rate &lt;- Severity.rates$count_Sev1/(Severity.rates$n_accidents * Severity.rates$road.rate)
+
+# Map the refined rates for Severity 1 (fatal)
+ggplot() + geom_polygon(data = Severity.rates, aes(x = long, y = lat, group = group, 
+fill = Sev1_rate), colour = &quot;grey&quot;, size = 0) + coord_equal() + xlab(&quot;Eastings&quot;) + 
+ylab(&quot;Northings&quot;)</code></pre>
+<p><img src="index_files/figure-html/final-1.png" width="672" /></p>
+<pre class="r"><code>#Quintile for Severity 1 Rate - final map for poster
+Severity.rates$Sev1_q &lt;- cut(Severity.rates$road.rate, 5, labels = c(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;))
+
+ggplot() + geom_polygon(data = Severity.rates, aes(x = long, y = lat, group = group, fill = Sev1_q), colour = &quot;grey&quot;, size = 0) + scale_fill_brewer(type = &quot;seq&quot;, palette = &quot;Blues&quot;) + coord_equal() + xlab(&quot;Eastings&quot;) + ylab(&quot;Northings&quot;)</code></pre>
+<p><img src="index_files/figure-html/final-2.png" width="672" /></p>
+<p>The above map was used on final <a href="Poster_A3_DataViz.pdf">poster</a></p>
+<p>*This site was not part of the assignemnt, however, I loved working with Rmarkdown and just wanted more!! ♥♥♥</p>
 </div>
 
 
