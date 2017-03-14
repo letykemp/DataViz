@@ -9,7 +9,7 @@
 <meta name="generator" content="pandoc" />
 
 
-<meta name="author" content="Lety Kemp | MSc on Health Data Science" />
+<meta name="author" content="Lety Kemp | MSc Health Data Science" />
 
 
 <title>Data Visualization</title>
@@ -198,7 +198,7 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Data Visualization</h1>
-<h4 class="author"><em><a href="https://twitter.com/letykemp">Lety Kemp</a> | MSc on Health Data Science</em></h4>
+<h4 class="author"><em><a href="https://twitter.com/letykemp">Lety Kemp</a> | MSc Health Data Science</em></h4>
 
 </div>
 
@@ -206,11 +206,11 @@ $(document).ready(function () {
 <div id="risk-rate-map---gis" class="section level2">
 <h2>Risk rate map - GIS</h2>
 <p>This page shows some of the methodology of an exploratory data analysis where I used R as a Geographic Information System (GIS) to create risk rates for the region of Swansea, UK.</p>
-<p>Adjusted risk rates were calculated and illustrated in a quantile map. The end product was a academic conference poster presented as part of the Data Visualisation module. More details on <a href="Poster_A3_DataViz.pdf">poster</a>. This site was not part of the assignment, however, I loved working with RStudio and just wanted more!! ♥♥♥</p>
-<p>The data sources were Open Data from UK authorities, but directly retrieved from <a href="http://richfry.github.io/Exposure.html#introduction">this</a> tutorial by GIS specialist <a href="https://twitter.com/richfry">Richard Fry</a>. Richard was the lecturer of the GIS component of Data Visualisation, one of the modules of my <a href="http://www.swansea.ac.uk/medicine/learningandteaching/msc-health-data-science/">Master’s Degree</a>.</p>
+<p>Adjusted risk rates were calculated and illustrated in a quantile map. The end product was a <a href="Poster_A3_DataViz.pdf">academic conference poster</a> presented in Data Visualisation, one of the modules of my <a href="http://www.swansea.ac.uk/medicine/learningandteaching/msc-health-data-science/">Master’s Degree</a>.</p>
+<p>The data sources were Open Data from UK authorities, but supplied by <a href="https://twitter.com/richfry">Richard Fry</a>, a GIS specialist who lecturered us and wrote <a href="http://richfry.github.io/Exposure.html#introduction">this</a> great tutorial.</p>
 <p>The R code below shows how I joined a few datasets to calculate the probability of accidents resulting in death in the region, essetially, using R as a GIS.</p>
-<p>This site was also created using RStudio with Rmarkdown, GitHub and Latex integrated. The <a href="Poster_A3_DataViz.pdf">poster</a> was created in Adobe Illustrator.</p>
-<p>With no further ado, the code:</p>
+<p>This site was also created using RStudio together with Rmarkdown, GitHub and Latex. The <a href="Poster_A3_DataViz.pdf">poster</a> was created in Adobe Illustrator. This site was <strong>not</strong> part of the assignment, however, I loved working with RStudio and just couldn’t get enough of it! ♥♥♥</p>
+<p>With no further ado, the GIS code:</p>
 <pre class="r"><code>#Assign packages needed 
 pkgs = c(&#39;ggplot2&#39;, &quot;plyr&quot;, &quot;dplyr&quot;, &quot;GISTools&quot;, &quot;rgdal&quot;, &quot;rgeos&quot;, &quot;reshape2&quot;, 
          &quot;DT&quot;)

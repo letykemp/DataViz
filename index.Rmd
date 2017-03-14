@@ -1,6 +1,6 @@
 ---
 title: "Data Visualization"
-author: "[Lety Kemp](https://twitter.com/letykemp) | MSc on Health Data Science"
+author: "[Lety Kemp](https://twitter.com/letykemp) | MSc Health Data Science"
 date: " "
 output:
   html_document:
@@ -12,15 +12,15 @@ output:
 
 This page shows some of the methodology of an exploratory data analysis where I used R as a Geographic Information System (GIS) to create risk rates for the region of Swansea, UK. 
 
-Adjusted risk rates were calculated and illustrated in a quantile map. The end product was a academic conference poster presented as part of the Data Visualisation module. More details on [poster](Poster_A3_DataViz.pdf). This site was not part of the assignment, however, I loved working with RStudio and just wanted more!! ♥♥♥
+Adjusted risk rates were calculated and illustrated in a quantile map. The end product was a [academic conference poster](Poster_A3_DataViz.pdf) presented in Data Visualisation, one of the modules of my [Master's Degree](http://www.swansea.ac.uk/medicine/learningandteaching/msc-health-data-science/).
 
-The data sources were Open Data from UK authorities, but directly retrieved from [this](http://richfry.github.io/Exposure.html#introduction) tutorial by GIS specialist [Richard Fry](https://twitter.com/richfry). Richard was the lecturer of the GIS component of Data Visualisation, one of the modules of my [Master's Degree](http://www.swansea.ac.uk/medicine/learningandteaching/msc-health-data-science/).
+The data sources were Open Data from UK authorities, but supplied by [Richard Fry](https://twitter.com/richfry), a GIS specialist who lecturered us and wrote [this](http://richfry.github.io/Exposure.html#introduction) great tutorial. 
 
 The R code below shows how I joined a few datasets to calculate the probability of accidents resulting in death in the region, essetially, using R as a GIS. 
 
-This site was also created using RStudio with Rmarkdown, GitHub and Latex integrated. The [poster](Poster_A3_DataViz.pdf) was created in Adobe Illustrator.
+This site was also created using RStudio together with Rmarkdown, GitHub and Latex. The [poster](Poster_A3_DataViz.pdf) was created in Adobe Illustrator. This site was **not** part of the assignment, however, I loved working with RStudio and just couldn't get enough of it! ♥♥♥ 
 
-With no further ado, the code:
+With no further ado, the GIS code:
 ```{r setup_code, echo=TRUE, results='hide', warning=FALSE, message=FALSE}
 
 
