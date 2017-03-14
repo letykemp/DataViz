@@ -1,6 +1,6 @@
 ---
 title: "Data Visualization"
-author: "[Lety Kemp](https://twitter.com/letykemp) | [Masters of Health Data Science](http://www.swansea.ac.uk/medicine/learningandteaching/msc-health-data-science/)"
+author: "[Lety Kemp](https://twitter.com/letykemp) | Masters of Health Data Science"
 date: " "
 output:
   html_document:
@@ -10,16 +10,17 @@ output:
 
 ##Risk rate map - GIS
 
-This page shows the methodology of an exploratory data analysis where I created risk rates of accident severity type 1 in the region of Swansea, UK. 
+This page shows some of the methodology of an exploratory data analysis where I used R as a GIS to create risk rates for the region of Swansea, UK. 
 
-Adjusted risk rates were calculated and illustrated in a quantile map. The end product was a academic conference poster presented as part of the Data Visualisation module. More details on [poster](Poster_A3_DataViz.pdf). (This site was not part of the assignment, however, I loved working with RStudio and just wanted more!! ♥♥♥)
+Adjusted risk rates were calculated and illustrated in a quantile map. The end product was a academic conference poster presented as part of the Data Visualisation module. More details on [poster](Poster_A3_DataViz.pdf). This site was not part of the assignment, however, I loved working with RStudio and just wanted more!! ♥♥♥
 
-The data sources were Open Data from UK authorities, but directly retrieved from [this](http://richfry.github.io/Exposure.html#introduction) tutorial by GIS specialist [Richard Fry](https://twitter.com/richfry). Richard was responsible for the GIS component of the Data Visualisation module.
+The data sources were Open Data from UK authorities, but directly retrieved from [this](http://richfry.github.io/Exposure.html#introduction) tutorial by GIS specialist [Richard Fry](https://twitter.com/richfry). Richard was the lecturer of the GIS component of Data Visualisation, one of the modules of my [Master's Degree](http://www.swansea.ac.uk/medicine/learningandteaching/msc-health-data-science/).
 
-The analysis and map were created using R software. This site was also created using RStudio, Rmarkdown and GitHub. The [poster](Poster_A3_DataViz.pdf) was created in Adobe Illustrator.
+The R code below shows how I joined a few datasets to calculate the probability of accidents resulting in death in the region, essetially, using R as a GIS. 
 
+This site was also created using RStudio with Rmarkdown, GitHub and Latex integrated. The [poster](Poster_A3_DataViz.pdf) was created in Adobe Illustrator.
 
-Following is the R code I used to create the rates and plot them in the map:
+With no further ado, the code:
 ```{r setup_code, echo=TRUE, results='hide', warning=FALSE, message=FALSE}
 
 

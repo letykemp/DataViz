@@ -5,16 +5,21 @@ date: " "
 output:
   html_document:
     theme: cosmo
+
 ---
+<style type="text/css">
+.caption {
+    font-size: x-small;
+}
+</style>
 
-
-# Data visualisation: poster design rationale 
+# Data visualisation: poster design rationale report
 
 ##Introduction
 
-This page describes the visualisation design rationale of the academic conference [poster](Poster_A3_DataViz.pdf) created as part of an assignment for Data Visualisation. 
+This page describes the visualisation design rationale of the academic conference [poster](Poster_A3_DataViz.pdf) created as part of an assignment for Data Visualisation. See abstract [here](abstract.html). 
 
-The poster was produced to present an exploratory data analysis (EDA) showing a risk map after aggregating counts of accident of severity type 1 across Swansea and normalising them for the amount of road network found in the region of Swansea. 
+The poster was produced to present an exploratory data analysis (EDA) showing a risk map after aggregating counts of accident of severity type 1 across Swansea region and normalising them for the amount of road network found in the region of Swansea. 
 
 The following sections of this page discuss details of the design elements of the poster, including, storyline, layout, colour scheme and overall style of the poster. **Data analysis methods are not discussed in this page**. For the data analysis, see [R as GIS](index.html) page.
 
@@ -149,9 +154,11 @@ The Gutemberg Diagram predicts that there is a general pattern followed by the e
 <br>
 <br>
 
-```{r, echo=FALSE, out.width = "500px", fig.align="center"}
+```{r, echo=FALSE, out.width = "500px", fig.align="center", fig.cap="image sourced from vanseodesign.com/web-design/3-design-layouts/"}
 knitr::include_graphics('gutemberg-diagram.png')
 ```
+
+
 <br>
 <br>
 

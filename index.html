@@ -206,7 +206,7 @@ $(document).ready(function () {
 <div id="risk-rate-map---gis" class="section level2">
 <h2>Risk rate map - GIS</h2>
 <p>This page shows the methodology of an exploratory data analysis where I created risk rates of accident severity type 1 in the region of Swansea, UK.</p>
-<p>Adjusted risk rates were calculated and illustrated in a quantile map. The end product was a academic conference poster presented as part of the Data Visualisation module. More details on <a href="Poster_A3_DataViz.pdf">poster</a>.</p>
+<p>Adjusted risk rates were calculated and illustrated in a quantile map. The end product was a academic conference poster presented as part of the Data Visualisation module. More details on <a href="Poster_A3_DataViz.pdf">poster</a>. This site was not part of the assignment, however, I loved working with RStudio and just wanted more!! ♥♥♥</p>
 <p>The data sources were Open Data from UK authorities, but directly retrieved from <a href="http://richfry.github.io/Exposure.html#introduction">this</a> tutorial by GIS specialist <a href="https://twitter.com/richfry">Richard Fry</a>. Richard was responsible for the GIS component of the Data Visualisation module.</p>
 <p>The analysis and map were created using R software. This site was also created using RStudio, Rmarkdown and GitHub. The <a href="Poster_A3_DataViz.pdf">poster</a> was created in Adobe Illustrator.</p>
 <p>Following is the R code I used to create the rates and plot them in the map:</p>
@@ -309,7 +309,6 @@ Severity.rates$Sev1_q &lt;- cut(Severity.rates$road.rate, 5, labels = c(&quot;1&
 ggplot() + geom_polygon(data = Severity.rates, aes(x = long, y = lat, group = group, fill = Sev1_q), colour = &quot;grey&quot;, size = 0) + scale_fill_brewer(type = &quot;seq&quot;, palette = &quot;Blues&quot;) + coord_equal() + xlab(&quot;Eastings&quot;) + ylab(&quot;Northings&quot;)</code></pre>
 <p><img src="index_files/figure-html/final-2.png" width="672" /></p>
 <p>The above map was used on final <a href="Poster_A3_DataViz.pdf">poster</a></p>
-<p>*This site was not part of the assignemnt, however, I loved working with Rmarkdown and just wanted more!! ♥♥♥</p>
 </div>
 
 
