@@ -1,5 +1,5 @@
 ---
-title: "Data Visualization"
+title: "Data Visualisation"
 author: "[Lety Kemp](https://twitter.com/letykemp) | MSc Health Data Science"
 date: " "
 output:

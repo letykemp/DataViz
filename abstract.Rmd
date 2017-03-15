@@ -5,7 +5,6 @@ date: ''
 output:
   html_document:
     theme: cosmo
-    favicon: favicon.png
 ---
 
 **Author**:
